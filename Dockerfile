@@ -12,7 +12,4 @@ EXPOSE 8211/udp
 EXPOSE 8211/tcp
 
 # Start NGINX with dynamic configuration
-CMD ["/bin/bash", "-c", "\
-    envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && \
-    nginx -g 'daemon off;' \
-"]
+CMD /bin/bash -c "envsubst < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'"
